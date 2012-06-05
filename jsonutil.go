@@ -37,6 +37,10 @@ func PrettyPrint(v interface{}) error {
 	return WriteIndented(os.Stdout, v, "", "  ")
 }
 
+// splits the incoming data on an io.reader into individual json messages.
+// Useful for working with contiuous streams of messages.  Messages and errors
+// are written into their respective channels.  Both channels are closed upon
+// termination.
 func Split(r io.Reader, c chan *json.RawMessage, e chan error) {
     defer close(c)
     defer close(e)

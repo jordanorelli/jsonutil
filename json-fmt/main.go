@@ -1,3 +1,9 @@
+/*
+command json-fmt reads json streams from stdin and pretty-prints them to
+stdout.  If you are familiar with Python, json-fmt is similar to `python
+-mjson.tool`, except that it accepts input line-by-line instead of buffering
+the entire input, making it usable with continuous streams.
+*/
 package main
 
 import (
