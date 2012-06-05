@@ -47,8 +47,6 @@ func Split(r io.Reader, c chan *json.RawMessage, e chan error) {
         switch err {
         case nil:
             c <- &raw
-        case io.EOF:
-            return
         default:
             e <- err
             return
